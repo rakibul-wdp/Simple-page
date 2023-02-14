@@ -26,4 +26,22 @@ const createUser = (req, res) => {
   });
 };
 
-module.exports = { createUser };
+const loginUser = (req, res) => {
+  const { email, password } = req.body;
+
+  User.findOne({ email: email }).then((user) => {
+    if (!user) {
+      return res.json("Username and password wrong");
+    } else {
+      bcrypt.compare(password, user.password).then((match) => {
+        if (match) {
+          return res.json("Login successful");
+        } else {
+          return res.json("Login Error");
+        }
+      });
+    }
+  });
+};
+
+module.exports = { createUser, loginUser };
