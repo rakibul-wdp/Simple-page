@@ -44,4 +44,27 @@ const loginUser = (req, res) => {
   });
 };
 
-module.exports = { createUser, loginUser };
+const forgetPassword = (req, res) => {
+  const { email, password } = req.body;
+
+  User.findOne({ email: email }).then((user) => {
+    if (!user) {
+      return res.json("Username does not exist");
+    } else {
+      bcrypt.hash(password, 10).then((result) => {
+        if (!result) {
+          return res.json("An error occurred");
+        } else {
+          User.updateOne({ email: email }, { password: result }).then(
+            (result) => {
+              console.log(result);
+              return res.json("Password change successfully");
+            }
+          );
+        }
+      });
+    }
+  });
+};
+
+module.exports = { createUser, loginUser, forgetPassword };
