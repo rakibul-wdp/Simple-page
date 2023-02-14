@@ -1,8 +1,17 @@
+import { BrowserRouter } from "react-router-dom";
+import Category from "./components/Category";
+import Navbar from "./components/Navbar";
+import Search from "./components/Search";
+import Pages from "./pages/Pages";
+
 function App() {
   return (
-    <div>
-      <h1>Hello Food Recipe World</h1>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Search />
+      <Category />
+      <Pages />
+    </BrowserRouter>
   );
 }
 

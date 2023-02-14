@@ -1,12 +1,9 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 import { GiKnifeFork } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function Navbar() {
-  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
-
   return (
     <NavWrapper>
       <Nav>
@@ -14,18 +11,8 @@ function Navbar() {
         <Logo to={"/"}>Food Recipe</Logo>
       </Nav>
       <div>
-        <User>{isAuthenticated && user.name}</User>
-        {isAuthenticated ? (
-          <Button
-            onClick={() =>
-              logout({ logoutParams: { returnTo: window.location.origin } })
-            }
-          >
-            Log Out
-          </Button>
-        ) : (
-          <Button onClick={() => loginWithRedirect()}>Login</Button>
-        )}
+        <Button>Log Out</Button>
+        <Button>Login</Button>
       </div>
     </NavWrapper>
   );
