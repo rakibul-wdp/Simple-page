@@ -39,6 +39,8 @@ const SideNavbar = () => {
 const Sidebar = styled.div`
   background: #ffffff;
   height: 100vh;
+  position: sticky;
+  top: 0;
 `;
 
 const Logo = styled(Link)`

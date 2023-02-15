@@ -1,6 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
 import styled from "styled-components";
-import Category from "./components/Category";
 import Navbar from "./components/Navbar";
 import SideNavbar from "./components/SideNavbar";
 import Pages from "./pages/Pages";
@@ -12,7 +11,6 @@ function App() {
         <SideNavbar />
         <div style={{margin: "1% 2% 0% 2%"}}>
           <Navbar />
-          <Category />
           <Pages />
         </div>
       </Sidebar>
