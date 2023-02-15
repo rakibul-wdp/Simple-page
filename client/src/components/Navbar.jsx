@@ -2,8 +2,17 @@ import React from "react";
 import { GiKnifeFork } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { useLogout } from "../hooks/useLogout";
 
 function Navbar() {
+  const { logout } = useLogout();
+  const { user } = useAuthContext();
+
+  const handleClick = () => {
+    logout();
+  };
+
   return (
     <NavWrapper>
       <Nav>
@@ -11,8 +20,18 @@ function Navbar() {
         <Logo to={"/"}>Food Recipe</Logo>
       </Nav>
       <div>
-        <Button>Log Out</Button>
-        <Button>Login</Button>
+        {user && (
+          <>
+            <User>{user.email}</User>
+            <Button onClick={handleClick}>Log Out</Button>
+          </>
+        )}
+        {!user && (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
+          </>
+        )}
       </div>
     </NavWrapper>
   );
