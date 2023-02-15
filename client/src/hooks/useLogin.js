@@ -11,7 +11,7 @@ export const useLogin = () => {
     setError(null);
 
     const response = await fetch(
-      "https://food-recipe-user-auth.onrender.com/login",
+      "/login",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
