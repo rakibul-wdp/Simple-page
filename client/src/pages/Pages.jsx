@@ -16,18 +16,27 @@ function Pages() {
   return (
     <AnimatePresence exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
         <Route
           path="/login"
-          element={!user ? <Login /> : <navigate to="/" />}
+          element={!user ? <Login /> : <Navigate to="/" />}
         />
         <Route
           path="/signup"
           element={!user ? <Signup /> : <Navigate to="/" />}
         />
-        <Route path="/cuisine/:type" element={<Cuisine />} />
-        <Route path="/searched/:search" element={<Searched />} />
-        <Route path="/recipe/:name" element={<Recipe />} />
+        <Route
+          path="/cuisine/:type"
+          element={user ? <Cuisine /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/searched/:search"
+          element={user ? <Searched /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/recipe/:name"
+          element={user ? <Recipe /> : <Navigate to="/login" />}
+        />
       </Routes>
     </AnimatePresence>
   );
