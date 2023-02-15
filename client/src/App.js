@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Sidebar>
         <SideNavbar />
-        <div>
+        <div style={{margin: "1% 2% 0% 2%"}}>
           <Navbar />
           <Category />
           <Pages />
