@@ -29,8 +29,7 @@ function Navbar() {
         )}
         {!user && (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
+            <Login to="/login">Login</Login>
           </>
         )}
       </div>
@@ -77,6 +76,22 @@ const Button = styled.button`
   border-radius: 1rem;
   font-size: 1rem;
   font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    background: linear-gradient(to right, #f27121, #e94057);
+    transition: 0.3s;
+  }
+`;
+
+const Login = styled(Link)`
+  background: linear-gradient(35deg, #494949, #313131);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
   cursor: pointer;
   &:hover {
     background: linear-gradient(to right, #f27121, #e94057);

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 import { useSignup } from "../hooks/useSignup";
 
 function Signup() {
@@ -43,10 +45,31 @@ function Signup() {
         value={password}
       />
 
-      <button disabled={isLoading}>Sign up</button>
+      <div>
+        <button disabled={isLoading}>Sign up</button>
+        <Login>
+          Already have an account?
+          <Link
+            style={{
+              color: "blue",
+              textDecoration: "none",
+              marginLeft: "0.2rem",
+            }}
+            to="/login"
+          >
+            Login
+          </Link>
+        </Login>
+      </div>
+
       {error && <div className="error">{error}</div>}
     </form>
   );
 }
+
+const Login = styled.span`
+  font-size: 13px;
+  margin-left: 1rem;
+`;
 
 export default Signup;
