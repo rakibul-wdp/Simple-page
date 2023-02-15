@@ -1,12 +1,16 @@
 import React from "react";
 import { FaHamburger, FaPizzaSlice } from "react-icons/fa";
-import { GiChopsticks, GiNoodles } from "react-icons/gi";
-import { NavLink } from "react-router-dom";
+import { GiChopsticks, GiKnifeFork, GiNoodles } from "react-icons/gi";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const SideNavbar = () => {
   return (
     <Sidebar>
+      <Nav>
+        <GiKnifeFork />
+        <Logo to={"/"}>Food Recipe</Logo>
+      </Nav>
       <List>
         <SLink to={"/cuisine/Italian"}>
           <FaPizzaSlice />
@@ -37,11 +41,29 @@ const Sidebar = styled.div`
   height: 100vh;
 `;
 
+const Logo = styled(Link)`
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: "Lobster Two", cursive;
+`;
+
+const Nav = styled.div`
+  padding: 2rem 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  svg {
+    font-size: 2rem;
+  }
+`;
+
 const List = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 15rem 0rem;
+  margin: 10rem 0rem;
 `;
 
 const SLink = styled(NavLink)`
