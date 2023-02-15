@@ -8,6 +8,7 @@ import { useLogout } from "../hooks/useLogout";
 function Navbar() {
   const { logout } = useLogout();
   const { user } = useAuthContext();
+  console.log(user);
 
   const handleClick = () => {
     logout();
@@ -22,7 +23,7 @@ function Navbar() {
       <div>
         {user && (
           <>
-            <User>{user.email}</User>
+            <User>{user.firstName + " " + user.lastName}</User>
             <Button onClick={handleClick}>Log Out</Button>
           </>
         )}
