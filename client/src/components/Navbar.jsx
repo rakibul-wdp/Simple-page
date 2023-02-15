@@ -1,9 +1,10 @@
 import React from "react";
-import { GiKnifeFork } from "react-icons/gi";
+// import { GiKnifeFork } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
+import Search from "./Search";
 
 function Navbar() {
   const { logout } = useLogout();
@@ -15,10 +16,11 @@ function Navbar() {
 
   return (
     <NavWrapper>
-      <Nav>
+      {/* <Nav>
         <GiKnifeFork />
         <Logo to={"/"}>Food Recipe</Logo>
-      </Nav>
+      </Nav> */}
+      <Search />
       <div>
         {user && (
           <>
