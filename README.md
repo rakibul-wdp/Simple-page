@@ -1,5 +1,6 @@
 # Full Stack App - Authentication [Client](https://food-recipe-with-auth.onrender.com) [Server](https://food-recipe-user-auth.onrender.com)
-## Features & Descriptions* Users can signup by their first name, last name, email, and password.
+## Features & Descriptions
+* Users can signup by their first name, last name, email, and password.
 * Users can log in by their email and password.
 * Authenticate users can see all content like home page food, and category wise food.
 * Users can search food recipes by food name and other food information.
