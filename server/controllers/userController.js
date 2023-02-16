@@ -20,7 +20,7 @@ const createUser = (req, res) => {
           password: result,
         });
         user.save();
-        return res.json(user);
+        return res.json({ user });
       });
     }
   });
@@ -35,7 +35,7 @@ const loginUser = (req, res) => {
     } else {
       bcrypt.compare(password, user.password).then((match) => {
         if (match) {
-          return res.json(user);
+          return res.json({ user });
         } else {
           return res.json("Login Error");
         }
